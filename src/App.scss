@@ -1,0 +1,195 @@
+$bg: linear-gradient(180deg, rgba(5, 102, 141, 0.8) 0%, rgba(5, 102, 141, 1) 100%);
+$white: #fff;
+$black: #000;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "FIBRE";
+  src: url("src/assets/fonts/fibre-font.otf");
+}
+body {
+  background: $bg;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: $white;
+}
+
+.app--container {
+  padding-inline: 1rem;
+  padding-block: 4rem;
+  .home--link{
+    color: $white;
+    text-decoration: none;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+    h1 {
+      font-size: 4rem;
+      font-family: "FIBRE";
+      margin-bottom: 1rem;
+    }
+  }
+  .header {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 2rem;
+    p {
+      color: rgba($color: $white, $alpha: 0.5);
+      line-height: 1.5;
+    }
+  }
+  .card--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    .product-details {
+      .card {
+        width: fit-content;
+        height: fit-content;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        img {
+          width: 400px;
+          height: 400px;
+          object-fit: fill;
+        }
+        .card--description {
+          position: absolute;
+          bottom: -100%;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          color: $black;
+          padding: 2rem 1rem;
+          z-index: 1;
+          transition: 0.4s ease-in-out;
+          &::after {
+            box-shadow: 0 0 10px rgba($color: $black, $alpha: 0.5);
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: $white;
+            position: absolute;
+            transform: skewY(4deg);
+            transform-origin: left bottom;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 16px 16px 0 0;
+          }
+          h2 {
+            text-transform: uppercase;
+            font-family: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+          }
+          p {
+            width: 90%;
+            color: rgba($color: $black, $alpha: 0.5);
+            margin-bottom: 1rem;
+          }
+          .card--footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span {
+              font-weight: 600;
+            }
+            .card--rate {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              svg {
+                color: gold;
+              }
+            }
+          }
+        }
+        &:hover {
+          .card--description {
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  h3.product-length {
+    margin: 30px auto;
+    font-size: 30px;
+    text-align: center;
+  }
+  button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin: 50px auto;
+  }
+  .details--container {
+    h1 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .product-details{
+      display: flex;
+      justify-content: center;
+      .product-img , .product-desc{
+        padding: 15px;
+      }
+      .product-img {
+        img {
+          max-width: 650px;
+          object-fit: cover;
+        }
+      }
+      .product-desc {
+        h3.category {
+          margin: 20px 0;
+        }
+        p.desc {
+          font-size: 1.2rem;
+          margin-block-end: 30px;
+          max-width: 450px;
+        }
+        .price-rate {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            font-size: 1.025rem;
+            font-weight: bold;
+          }
+          span:nth-child(2) {
+            display: flex;
+            align-items: center;
+            color: gold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .app--container {
+    padding-inline: 6rem;
+    .header {
+      width: 60%;
+    }
+  }
+}
